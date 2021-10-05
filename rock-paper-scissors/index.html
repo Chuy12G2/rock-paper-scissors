@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Paper, rock ,scissors</title>
+  </head>
+
+  <body>
+      
+
+</body>
+
+<script>
+
+    let computerScore = 0;
+    let playerScore = 0;
+
+        function computerPlay()
+        {   
+            let randomWord = Math.floor(Math.random() * 3);
+            let possibleWords = ["Paper", "Rock", "Scissors"]; 
+
+            return  possibleWords[randomWord];
+        }
+
+        function playerPlay(){
+            let playerSelection = prompt("Type either paper, rock o scissors: "); 
+            playerSelection.toUpperCase(); 
+            return playerSelection.toUpperCase();
+        }
+
+
+        function playRound(playerChoice, computerChoice){
+            if (playerChoice == "PAPER" && computerChoice == "Rock"){
+                console.log("You Win! Paper beats Rock");
+                playerScore++;
+            }
+            else if (playerChoice == "PAPER" && computerChoice == "Scissors"){
+                console.log("You Lose! Scissors beat Paper");
+                computerScore++;
+            }
+            else if (playerChoice == "PAPER" && computerChoice == "Paper"){
+                console.log("Draw");
+            }
+            else if (playerChoice == "SCISSORS" && computerChoice == "Rock"){
+                console.log("You Lose! Rock beats Scissors");
+                computerScore++;
+            }
+            else if (playerChoice == "SCISSORS" &&  computerChoice == "Scissors")
+            {
+                console.log("Draw"); 
+            }
+
+            else if (playerChoice == "SCISSORS" && computerChoice == "Paper"){
+                console.log("You Win! Scissors beat Paper");
+                playerScore++;
+            }
+
+            else if (playerChoice == "ROCK" && computerChoice == "Rock"){
+                console.log("Draw");
+            }
+            
+            else if (playerChoice == "ROCK" && computerChoice == "Scissors"){
+                console.log("You Win! Rock beats Scissors");
+                playerScore++;
+            }
+            else if (playerChoice == "ROCK" && computerChoice == "Paper"){
+                console.log("You Lose! Paper beats Rock");
+                computerScore++;
+            }
+        }
+
+        function game(){
+            for(let i = 0; i<5; i++)
+            {
+                playRound (playerPlay(),computerPlay())
+            }
+
+           if (computerScore > playerScore){
+                alert("Computers Wins! HAHA You fucking Loser");
+            }
+
+            else if (playerScore > computerScore){
+                alert("You Win");
+            }
+
+            else{
+                alert("It´s a Draw");
+            }
+            
+        }
+
+
+        game();
+
+        console.log("Computer´s Score: " + computerScore + "\nPlayer´s Score: " + playerScore );
+
+</script>
+</html>
